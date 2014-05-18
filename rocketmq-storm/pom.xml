@@ -61,56 +61,23 @@
 		<dependency>
 			<groupId>storm</groupId>
 			<artifactId>storm</artifactId>
-			<version>0.9.0-rc2</version>
+			<version>0.9.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba</groupId>
+			<groupId>com.alibaba.rocketmq</groupId>
 			<artifactId>rocketmq-client</artifactId>
-			<version>3.0.2</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>rocketmq-common</artifactId>
-			<version>3.0.2</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>rocketmq-broker</artifactId>
-			<version>3.0.2</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>rocketmq-namesrv</artifactId>
-			<version>3.0.2</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>rocketmq-remoting</artifactId>
-			<version>3.0.2</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>rocketmq-research</artifactId>
-			<version>3.0.2</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>rocketmq-store</artifactId>
-			<version>3.0.2</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>rocketmq-tools</artifactId>
-			<version>3.0.2</version>
-			<scope>compile</scope>
+			<version>3.0.9</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>logback-classic</artifactId>
+					<groupId>ch.qos.logback</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>logback-core</artifactId>
+					<groupId>ch.qos.logback</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>io.netty</groupId>
