@@ -99,7 +99,8 @@ public class BatchTopologyTest {
 	
 	public static void main(String args[]) throws MQClientException{
 		String consumerGroup="groupTest";
-		AtomicInteger flag=new AtomicInteger(4);
+		//flag值是在ShowGlobalCount 的bolt中抛出 异常的次数，用来测试事务回滚的特性。
+		AtomicInteger flag=new AtomicInteger(0);
 		RegisteredGlobalState.setState("count",flag);
 		RocketBatchSpout spout = new RocketBatchSpout(consumerGroup,"rocketTopicTest","127.0.0.1:9876",20,new Fields("message"));
 	    TransactionalTopologyBuilder builder = new TransactionalTopologyBuilder("global-count", "spout", spout,4);
