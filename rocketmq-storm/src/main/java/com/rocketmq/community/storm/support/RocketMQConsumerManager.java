@@ -12,6 +12,11 @@ import com.alibaba.rocketmq.client.exception.MQClientException;
 import com.alibaba.rocketmq.common.message.MessageQueue;
 import com.alibaba.rocketmq.common.protocol.heartbeat.MessageModel;
 
+/**
+ * RocketMQ消费端对象的管理
+ * @author 47626399@qq.com
+ *
+ */
 public class RocketMQConsumerManager {
 
 	private static Map<String,DefaultMQPullConsumer> map=new ConcurrentHashMap<String,DefaultMQPullConsumer>();

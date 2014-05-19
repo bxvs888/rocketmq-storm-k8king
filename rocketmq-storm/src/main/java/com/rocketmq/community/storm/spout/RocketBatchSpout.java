@@ -22,8 +22,9 @@ import com.rocketmq.community.storm.support.RocketMQConsumerManager;
 
 /**
  * RocketMQ批量获取
- * @author xiangnan.wang@ipinyou.com
- *
+ * @author 47626399@qq.com
+ * 发送的批次控制策略 按照 时间控制，数量控制两个维度。
+ * 
  */
 public class RocketBatchSpout implements IPartitionedTransactionalSpout<RocketBatchSpoutMeta>{
 	
@@ -100,6 +101,7 @@ public class RocketBatchSpout implements IPartitionedTransactionalSpout<RocketBa
 					//没有上一次,说明第一次发送
 					//获取目前的消费进度
 					index = consumer.fetchConsumeOffset(mq, false);
+					//进度为-1说明异常情况，需要重新读取
 					index=index==-1?0:index;
             	} else {
             		index = lastPartitionMeta.getNextOffset();
@@ -115,7 +117,7 @@ public class RocketBatchSpout implements IPartitionedTransactionalSpout<RocketBa
 					for(MessageExt mess:msgL){
 						List<Object> toEmit=new ArrayList<Object>();
 						toEmit.add(0,tx);
-						toEmit.add(mess);
+						toEmit.add(mess.getBody());
 						collector.emit(toEmit);
 					}
 				}

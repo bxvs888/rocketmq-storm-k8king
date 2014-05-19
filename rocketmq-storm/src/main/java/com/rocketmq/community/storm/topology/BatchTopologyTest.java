@@ -22,6 +22,11 @@ import backtype.storm.utils.RegisteredGlobalState;
 import com.alibaba.rocketmq.client.exception.MQClientException;
 import com.rocketmq.community.storm.spout.RocketBatchSpout;
 
+/**
+ * 批量消费RocketMQ例子
+ * @author 47626399@qq.com
+ *
+ */
 public class BatchTopologyTest {
 	
 	public static class BatchCount extends BaseBatchBolt {
